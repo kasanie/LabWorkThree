@@ -6,11 +6,11 @@ namespace LabWorkThree
     {
         static void Main(string[] args)
         {
-            double firstVariable, secondVariable, tempVariable;
+            double firstInput, secondInput;
             Console.WriteLine("Введите первое дробное число:");
-            for (; ; )
+            for (;;)
             {
-                if (double.TryParse(Console.ReadLine(), out firstVariable))
+                if (double.TryParse(Console.ReadLine(), out firstInput))
                 {
                     Console.WriteLine("Введите второе дробное число:");
                     break;
@@ -19,11 +19,11 @@ namespace LabWorkThree
                 {
                     Console.WriteLine("Ошибка! Введите первое дробное число:");
                     continue;
-                }
+                }            
             }
-            for (; ; )
+            for (;;)
             {
-                if (double.TryParse(Console.ReadLine(), out secondVariable))
+                if (double.TryParse(Console.ReadLine(), out secondInput))
                 {
                     break;
                 }
@@ -33,16 +33,20 @@ namespace LabWorkThree
                     continue;
                 }
             }
-            Console.WriteLine("Первое число это " + firstVariable + "\r\nВторое число это " + secondVariable);
+            SwapNumbers(firstInput, secondInput);
+        }
+        static void SwapNumbers(double firstInput, double secondInput)
+        {
+            Console.WriteLine("Первое число это " + firstInput + "\r\nВторое число это " + secondInput);
             Console.WriteLine("Вы хотите поменять значения чисел местами? (y - Да / n - Нет, выход из программы)");
             for (; ; )
             {
                 if (Console.ReadLine() == "y")
                 {
-                    tempVariable = firstVariable;
-                    firstVariable = secondVariable;
-                    secondVariable = tempVariable;
-                    Console.WriteLine("Первое число это " + firstVariable + "\r\nВторое число это " + secondVariable);
+                    var tempVariable = firstInput;
+                    firstInput = secondInput;
+                    secondInput = tempVariable;
+                    Console.WriteLine("Первое число это " + firstInput + "\r\nВторое число это " + secondInput);
                     Console.WriteLine("Вы хотите поменять значения чисел местами?  (y - Да, n - Нет, выход из программы)");
                     continue;
                 }
@@ -52,5 +56,6 @@ namespace LabWorkThree
                 }
             }
         }
+
     }
 }

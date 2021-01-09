@@ -33,19 +33,13 @@ namespace LabWorkThree
                     continue;
                 }
             }
-            SwapNumbers(firstInput, secondInput);
-        }
-        static void SwapNumbers(double firstInput, double secondInput)
-        {
             Console.WriteLine("Первое число это " + firstInput + "\r\nВторое число это " + secondInput);
             Console.WriteLine("Вы хотите поменять значения чисел местами? (y - Да / n - Нет, выход из программы)");
             for (; ; )
             {
                 if (Console.ReadLine() == "y")
                 {
-                    var tempVariable = firstInput;
-                    firstInput = secondInput;
-                    secondInput = tempVariable;
+                    SwapNumbers(ref firstInput,ref secondInput);
                     Console.WriteLine("Первое число это " + firstInput + "\r\nВторое число это " + secondInput);
                     Console.WriteLine("Вы хотите поменять значения чисел местами?  (y - Да, n - Нет, выход из программы)");
                     continue;
@@ -56,6 +50,11 @@ namespace LabWorkThree
                 }
             }
         }
-
+        static void SwapNumbers(ref double firstInput,ref double secondInput)
+        {
+                    var tempVariable = firstInput;
+                    firstInput = secondInput;
+                    secondInput = tempVariable;
+        }
     }
 }
